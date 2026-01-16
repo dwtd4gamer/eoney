@@ -1,349 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eoney Companie - We Mak Monie</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        
-        body {
-            background-color: #f0f8ff;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        header {
-            background: linear-gradient(to right, #ffcc00, #ff9900);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 5px dashed #cc0000;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            color: #cc0000;
-            text-shadow: 2px 2px 0 #ffcc00;
-        }
-        
-        nav {
-            background-color: #cc0000;
-            padding: 10px;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-        
-        nav li {
-            margin: 0 15px;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        
-        nav a:hover {
-            background-color: #ffcc00;
-            color: #cc0000;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        
-        .hero {
-            background-color: #ffcc00;
-            padding: 40px;
-            text-align: center;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 3px dotted #cc0000;
-        }
-        
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #cc0000;
-        }
-        
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #cc0000;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: transform 0.3s;
-        }
-        
-        .btn:hover {
-            transform: scale(1.1);
-        }
-        
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin: 40px 0;
-        }
-        
-        .feature {
-            flex: 0 0 30%;
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border: 2px solid #ffcc00;
-        }
-        
-        .feature h3 {
-            color: #cc0000;
-            margin-bottom: 10px;
-            font-size: 1.5rem;
-        }
-        
-        .testimonials {
-            background-color: #ffcc00;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            text-align: center;
-        }
-        
-        .testimonial {
-            margin: 20px 0;
-            font-style: italic;
-        }
-        
-        footer {
-            background-color: #cc0000;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-        
-        .contact-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 40px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ffcc00;
-            border-radius: 5px;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            margin: 40px 0;
-        }
-        
-        .about-text {
-            flex: 1;
-            padding-right: 20px;
-        }
-        
-        .about-image {
-            flex: 1;
-            text-align: center;
-        }
-        
-        .about-image img {
-            max-width: 100%;
-            border-radius: 10px;
-            border: 3px dashed #ffcc00;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .service {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-left: 5px solid #cc0000;
-        }
-        
-        .service h3 {
-            color: #cc0000;
-            margin-bottom: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .features {
-                flex-direction: column;
-            }
-            
-            .feature {
-                flex: 0 0 100%;
-            }
-            
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 20px;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 5px 0;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Po Macks Gam 10000</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: url('bg.gif') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    h1.page-title {
+      text-align: center;
+      padding: 20px;
+      margin: 0;
+      background-color: rgba(34, 34, 34, 0.8);
+      color: white;
+      font-size: 32px;
+    }
+
+    .launcher {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+      background-color: rgba(51, 51, 51, 0.8);
+    }
+
+    .launcher button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .iframe-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000000cc;
+      z-index: 999;
+    }
+
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      background: #ff5555;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      cursor: pointer;
+      z-index: 1000;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Eoney Companie</h1>
-        <p>We Mak Monie For Yu!</p>
-    </header>
-    
-    <nav>
-        <ul>
-            <li><a href="#home">Hom</a></li>
-            <li><a href="#about">Abowt</a></li>
-            <li><a href="#services">Servises</a></li>
-            <li><a href="#testimonials">Wat Peeple Say</a></li>
-            <li><a href="#contact">Kontakt Us</a></li>
-        </ul>
-    </nav>
-    
-    <div class="container">
-        <section id="home" class="hero">
-            <h2>Welcom To Eoney Companie!</h2>
-            <p>We hepl yu mak mor monie with our grate servises. Yu wont be disapointed!</p>
-            <a href="#contact" class="btn">Get Startid</a>
-        </section>
-        
-        <section id="about">
-            <h2>Abowt Eoney Companie</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Eoney Companie wuz foundid in 2020 by our grate lider, John Do. We hav bin helpin peeple mak monie evr sins.</p>
-                    <p>Our mishen is to hep evrywun get rich quik. We beleev that monie shud be for evrywun, not just the rich peeple.</p>
-                    <p>With our unik metods and grate team, we garanty that yu wil see resulds in no tim!</p>
-                </div>
-                <div class="about-image">
-                    <img src="https://via.placeholder.com/400x300/ffcc00/cc0000?text=Eoney+Team" alt="Eoney Team">
-                </div>
-            </div>
-        </section>
-        
-        <section id="services">
-            <h2>Our Servises</h2>
-            <div class="services-grid">
-                <div class="service">
-                    <h3>Monie Makin</h3>
-                    <p>We teech yu how to mak monie fast. No xperiens nesesary!</p>
-                </div>
-                <div class="service">
-                    <h3>Investing</h3>
-                    <p>We hep yu invest yur monie in grate oportunities.</p>
-                </div>
-                <div class="service">
-                    <h3>Savings</h3>
-                    <p>Lern how to sav monie so yu can hav mor in the futur.</p>
-                </div>
-                <div class="service">
-                    <h3>Biznes Advise</h3>
-                    <p>Get expert advise on how to grow yur biznes and mak mor monie.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="testimonials" class="testimonials">
-            <h2>Wat Our Cliants Say</h2>
-            <div class="testimonial">
-                <p>"Eoney Companie changd my life! I wuz poor but now I hav lots of monie. Thank yu!"</p>
-                <p>- Jane S., Happi Cliant</p>
-            </div>
-            <div class="testimonial">
-                <p>"I nevr thougt I cud mak so much monie. Eoney Companie showd me how!"</p>
-                <p>- Bob T., Sucessful Investr</p>
-            </div>
-            <div class="testimonial">
-                <p>"The best monie advise I evr got. I recomend Eoney Companie to evrywun!"</p>
-                <p>- Sarah M., Biznes Owner</p>
-            </div>
-        </section>
-        
-        <section id="contact">
-            <h2>Kontakt Us</h2>
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Yur Nam</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Yur Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Yur Mesage</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Mesage</button>
-                </form>
-            </div>
-        </section>
-    </div>
-    
-    <footer>
-        <p>&copy; 2023 Eoney Companie. All rites reservd. We mak monie for yu!</p>
-        <p>Adres: 123 Monie Street, Rich City, WC 10001 | Fone: 555-EONEY | Email: info@eoneycompanie.com</p>
-    </footer>
+
+  <h1 class="page-title">Po Maks Gam 10000</h1>
+
+  <div class="launcher">
+    <button onclick="openIframe(1)">Custy Cab Mak Bugers</button>
+    <button onclick="openIframe(2)">Mye Msic Appe</button>
+    <button onclick="openIframe(3)">Col Blok Gam</button>
+    <button onclick="openIframe(4)">Croosy Rod</button>
+    <button onclick="openIframe(5)">Geometry Rash</button>
+  </div>
+
+  <div id="iframe1" class="iframe-container">
+    <button class="close-btn" onclick="closeIframes()">✖</button>
+    <iframe src="https://croosyrod.w3spaces.com/custycab.html"></iframe>
+  </div>
+
+  <div id="iframe2" class="iframe-container">
+    <button class="close-btn" onclick="closeIframes()">✖</button>
+    <iframe src="https://croosyrod.w3spaces.com/msic.html"></iframe>
+  </div>
+
+  <div id="iframe3" class="iframe-container">
+    <button class="close-btn" onclick="closeIframes()">✖</button>
+    <iframe src="https://croosyrod.w3spaces.com/colbockgam.html"></iframe>
+  </div>
+
+  <div id="iframe4" class="iframe-container">
+    <button class="close-btn" onclick="closeIframes()">✖</button>
+    <iframe src="https://croosyrod.w3spaces.com/index.html"></iframe>
+  </div>
+
+ <div id="iframe5" class="iframe-container">
+    <button class="close-btn" onclick="closeIframes()">✖</button>
+    <iframe src="https://eoney.vercel.app/geometryrash.html"></iframe>
+  </div>
+
+
+  <script>
+    function closeIframes() {
+      document.querySelectorAll('.iframe-container').forEach(el => {
+        el.style.display = 'none';
+      });
+    }
+
+    function openIframe(id) {
+      closeIframes(); // Hide all first
+      document.getElementById('iframe' + id).style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
