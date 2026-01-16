@@ -102,12 +102,6 @@
     <iframe src="https://croosyrod.w3spaces.com/index.html"></iframe>
   </div>
 
- <div id="iframe5" class="iframe-container">
-    <button class="close-btn" onclick="closeIframes()">✖</button>
-    <iframe src="https://eoney.vercel.app/geometryrash.html"></iframe>
-  </div>
-
-
   <script>
     function closeIframes() {
       document.querySelectorAll('.iframe-container').forEach(el => {
