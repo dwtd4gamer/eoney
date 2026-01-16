@@ -79,8 +79,6 @@
     <button onclick="openIframe(2)">Mye Msic Appe</button>
     <button onclick="openIframe(3)">Col Blok Gam</button>
     <button onclick="openIframe(4)">Croosy Rod</button>
-    <button onclick="openIframe(5)">Geometry Rash</button>
-  </div>
 
   <div id="iframe1" class="iframe-container">
     <button class="close-btn" onclick="closeIframes()">✖</button>
