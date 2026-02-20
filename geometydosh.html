@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Geomety dosh</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        background: linear-gradient(#111, #1a1a1a);
+        font-family: Arial, sans-serif;
+    }
+    canvas {
+        display: block;
+    }
+</style>
+</head>
+<body>
+
+<canvas id="game"></canvas>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let state = "menu"; // menu, playing, gameover
+let gravity = 0.9;
+let gameSpeed = 7;
+let score = 0;
+
+const groundY = canvas.height - 120;
+
+const player = {
+    x: 200,
+    y: groundY - 40,
+    size: 40,
+    dy: 0,
+    rotation: 0,
+    grounded: false,
+    jumpPower: -17
+};
+
+let obstacles = [];
+let particles = [];
+
+function spawnSpike() {
+    const height = 40;
+    obstacles.push({
+        x: canvas.width,
+        y: groundY,
+        width: 40,
+        height: height
+    });
+}
+
+function drawPlayer() {
+    ctx.save();
+    ctx.translate(player.x + player.size/2, player.y + player.size/2);
+    ctx.rotate(player.rotation);
+    ctx.fillStyle = "#00ffff";
+    ctx.shadowColor = "#00ffff";
+    ctx.shadowBlur = 20;
+    ctx.fillRect(-player.size/2, -player.size/2, player.size, player.size);
+    ctx.restore();
+}
+
+function drawSpike(spike) {
+    ctx.beginPath();
+    ctx.moveTo(spike.x, spike.y);
+    ctx.lineTo(spike.x + spike.width/2, spike.y - spike.height);
+    ctx.lineTo(spike.x + spike.width, spike.y);
+    ctx.closePath();
+    ctx.fillStyle = "#ff0055";
+    ctx.shadowColor = "#ff0055";
+    ctx.shadowBlur = 15;
+    ctx.fill();
+}
+
+function createExplosion() {
+    for (let i = 0; i < 30; i++) {
+        particles.push({
+            x: player.x + player.size/2,
+            y: player.y + player.size/2,
+            dx: (Math.random() - 0.5) * 10,
+            dy: (Math.random() - 0.5) * 10,
+            life: 60
+        });
+    }
+}
+
+function updateParticles() {
+    for (let p of particles) {
+        p.x += p.dx;
+        p.y += p.dy;
+        p.life--;
+        ctx.fillStyle = "rgba(0,255,255," + (p.life/60) + ")";
+        ctx.fillRect(p.x, p.y, 4, 4);
+    }
+    particles = particles.filter(p => p.life > 0);
+}
+
+function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    if (state === "menu") {
+        ctx.fillStyle = "#fff";
+        ctx.font = "60px Arial";
+        ctx.fillText("GEOMETY DOSH", canvas.width/2 - 350, canvas.height/2 - 50);
+        ctx.font = "30px Arial";
+        ctx.fillText("Click or Press Space to Start", canvas.width/2 - 180, canvas.height/2 + 20);
+        requestAnimationFrame(update);
+        return;
+    }
+
+    // Ground
+    ctx.fillStyle = "#333";
+    ctx.fillRect(0, groundY, canvas.width, canvas.height - groundY);
+
+    if (state === "playing") {
+
+        // Player physics
+        player.dy += gravity;
+        player.y += player.dy;
+
+        if (player.y + player.size >= groundY) {
+            player.y = groundY - player.size;
+            player.dy = 0;
+            player.grounded = true;
+            player.rotation = 0;
+        } else {
+            player.grounded = false;
+            player.rotation += 0.15;
+        }
+
+        drawPlayer();
+
+        // Obstacles
+        for (let spike of obstacles) {
+            spike.x -= gameSpeed;
+            drawSpike(spike);
+
+            // Simple collision box check
+            if (
+                player.x < spike.x + spike.width &&
+                player.x + player.size > spike.x &&
+                player.y + player.size > spike.y - spike.height
+            ) {
+                state = "gameover";
+                createExplosion();
+            }
+        }
+
+        obstacles = obstacles.filter(s => s.x + s.width > 0);
+
+        // Score
+        score++;
+        ctx.fillStyle = "#fff";
+        ctx.font = "30px Arial";
+        ctx.fillText("Score: " + score, 50, 50);
+
+        if (score % 500 === 0) {
+            gameSpeed += 0.5;
+        }
+    }
+
+    if (state === "gameover") {
+        drawPlayer();
+        updateParticles();
+        ctx.fillStyle = "#fff";
+        ctx.font = "50px Arial";
+        ctx.fillText("GAM OVER", canvas.width/2 - 150, canvas.height/2);
+        ctx.font = "25px Arial";
+        ctx.fillText("Clik orr Pres Spac too Restat", canvas.width/2 - 170, canvas.height/2 + 50);
+    }
+
+    requestAnimationFrame(update);
+}
+
+function jump() {
+    if (state === "menu") {
+        state = "playing";
+    } else if (state === "playing" && player.grounded) {
+        player.dy = player.jumpPower;
+    } else if (state === "gameover") {
+        restart();
+    }
+}
+
+function restart() {
+    obstacles = [];
+    particles = [];
+    score = 0;
+    gameSpeed = 7;
+    player.y = groundY - player.size;
+    state = "playing";
+}
+
+window.addEventListener("keydown", e => {
+    if (e.code === "Space") jump();
+});
+
+window.addEventListener("mousedown", jump);
+window.addEventListener("touchstart", jump);
+
+setInterval(() => {
+    if (state === "playing") spawnSpike();
+}, 1200);
+
+update();
+</script>
+
+</body>
+</html>
